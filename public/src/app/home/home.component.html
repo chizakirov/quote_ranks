@@ -1,0 +1,25 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<div style="text-align:center">
+  <h1>Quote Ranks</h1>
+  <a [routerLink] = "['/new']">Add a quotable author</a>
+  <p>We have quotes by:</p> 
+  <div>
+    <table class = "table">
+      <tr>
+        <th>Authors</th>
+        <th>Actions Available</th>
+      </tr>
+      <div *ngFor = "let x of authors">
+        <tr>
+          <td>{{ x.name}} - {{ x._id }} </td>
+          <td><button [routerLink] = "['quotes', x._id]">View Quotes</button> <button>Edit</button></td>
+        </tr>
+      </div>
+
+    </table>
+  </div>
+</div>
+<router-outlet></router-outlet>

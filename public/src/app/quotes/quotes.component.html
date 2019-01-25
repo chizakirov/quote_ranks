@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<p><a href="/">Home</a></p>
+<p>
+  <a [routerLink] = "['/write', quotes._id]">Add a quote</a>
+</p>
+<div>
+  <p>Quotes by {{ quotes.name }} - {{quotes._id}}</p>
+  <table class = "table">
+    <tr>
+      <th>Quote</th>
+      <th>Votes</th>
+      <th>Actions Available</th>
+    </tr>
+    <div *ngFor = "let x of quotes.quotes">
+      <tr>
+        <td>{{ x.quote }}</td>
+        <td>{{ x.vote }} </td>
+        <td><button (click) = "voteUp(quotes._id, x._id, x)"> Vote Up</button> <button (click) = "voteDown(quotes._id, x._id, x)">Vote Down</button> <button (click) = "deleteQuote(quotes._id, x._id)">Delete</button></td>
+      </tr>
+      </div>
+
+    </table>
+</div>
+<router-outlet></router-outlet>

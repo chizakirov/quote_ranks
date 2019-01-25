@@ -1,0 +1,18 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<div style="text-align:center">
+    <a href="/home">Home</a>
+  <p>Add a quote for {{ author |json }}</p>
+  
+  <form>
+    <label> Quote:
+      <input type="text" name = "name" [(ngModel)] = "new_quote.quote">
+    </label>
+    <button (click)="addQuote()">Submit</button>
+    <a href="/home">Cancel</a>
+  </form>
+</div>
+<router-outlet></router-outlet>
+
